@@ -1,0 +1,1 @@
+# streamlink-firefox-helper
