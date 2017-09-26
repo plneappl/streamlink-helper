@@ -13,7 +13,7 @@ You need to do multiple things for this to work:
 - Install [Python](https://python.org), and add it to your ```PATH``` environment variable.
 - Install [Streamlink](https://github.com/streamlink/streamlink), propably using ```pip install streamlink```. Add the executable to your path.
 - Set ```default-stream best``` (or another quality) in the ```streamlinkrc``` (```found at %APPDATA%\streamlink\streamlinkrc```)
-- Download and unzip ```streamlink-firefox-helper.zip``` from [Releases](releases) somewhere you can read and write to. Note that location. Then:
+- Download and unzip ```streamlink-firefox-helper.zip``` from [Releases](https://github.com/plneappl/streamlink-firefox-helper/releases) somewhere you can read and write to. Note that location. Then:
     + Edit ```registry.reg``` with the path to ```streamlink-firefox-helper.json``` in that location and execute it, or edit the registry on your own.
     + Edit ```streamlink-firefox-helper.json``` with the path to ```streamlink-firefox-helper.bat```.
     + Edit ```streamlink-firefox-helper.bat``` with the path to ```streamlink-firefox-helper.py``` (and to Python, if it's not on your path).
