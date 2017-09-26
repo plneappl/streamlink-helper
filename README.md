@@ -2,6 +2,8 @@
 
 A companion addon for [Streamlink](https://github.com/streamlink/streamlink).
 
+Listing on AMO: [Streamlink Firefox Helper](https://addons.mozilla.org/en-US/firefox/addon/streamlink-firefox-helper/).
+
 ## What it does
 
 This add-on adds an entry to the context menu for URLs and the current page. Clicking it will launch ```streamlink.exe``` with the URL/page as its first argument.
