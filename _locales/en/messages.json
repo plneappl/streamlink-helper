@@ -1,0 +1,21 @@
+{
+  "extensionName": {
+    "message": "Streamlink Firefox helper",
+    "description": "Name of the extension."
+  },
+
+  "extensionDescription": {
+    "message": "Lets you open links with streamlink.",
+    "description": "Description of the add-on."
+  },
+
+  "menuItemLinkStreamlink": {
+    "message": "Open with Streamlink",
+    "description": "Opens the current link with Streamlink"
+  },
+
+  "menuItemPageStreamlink": {
+    "message": "Open with Streamlink",
+    "description": "Opens the current page with Streamlink"
+  }
+}
