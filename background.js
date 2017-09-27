@@ -48,7 +48,7 @@ browser.menus.create({
   contexts: ["page"]
 }, onCreated);
 
-nativeName = "streamlink_firefox_helper";
+nativeName = "streamlink_helper";
 //var port = browser.runtime.connectNative(nativeName);
 
 //port.onMessage.addListener(onResponse);

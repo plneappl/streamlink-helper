@@ -1,7 +1,0 @@
-{
-  "name": "streamlink_firefox_helper",
-  "description": "Runs streamlink with passed URL",
-  "path": "C:\\streamlink-firefox-helper\\streamlink-firefox-helper.bat",
-  "type": "stdio",
-  "allowed_extensions": [ "streamlink.firefox.helper@gmail.com" ]
-}

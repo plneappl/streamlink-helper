@@ -1,8 +1,8 @@
-# Streamlink Firefox Helper
+# Streamlink Helper
 
 A companion addon for [Streamlink](https://github.com/streamlink/streamlink).
 
-Listing on AMO: [Streamlink Firefox Helper](https://addons.mozilla.org/en-US/firefox/addon/streamlink-firefox-helper/).
+Listing on AMO: [Streamlink Helper](https://addons.mozilla.org/en-US/firefox/addon/streamlink-helper/).
 
 ## What it does
 
@@ -15,11 +15,11 @@ You need to do multiple things for this to work:
 - Install [Python](https://python.org), and add it to your ```PATH``` environment variable.
 - Install [Streamlink](https://github.com/streamlink/streamlink), propably using ```pip install streamlink```. Add the executable to your path.
 - Set ```default-stream best``` (or another quality) in the ```streamlinkrc``` (```found at %APPDATA%\streamlink\streamlinkrc```)
-- Download and unzip ```streamlink-firefox-helper.zip``` from [Releases](https://github.com/plneappl/streamlink-firefox-helper/releases) somewhere you can read and write to. Note that location. Then:
-    + Edit ```registry.reg``` with the path to ```streamlink-firefox-helper.json``` in that location and execute it, or edit the registry on your own.
-    + Edit ```streamlink-firefox-helper.json``` with the path to ```streamlink-firefox-helper.bat```.
-    + Edit ```streamlink-firefox-helper.bat``` with the path to ```streamlink-firefox-helper.py``` (and to Python, if it's not on your path).
-    + If ```streamlink.exe``` is not on your path, edit ```streamlink-firefox-helper.py```, replacing ```streamlink.exe``` with the location to it.
+- Download and unzip ```streamlink-helper.zip``` from [Releases](https://github.com/plneappl/streamlink-helper/releases) somewhere you can read and write to. Note that location. Then:
+    + Edit ```registry.reg``` with the path to ```streamlink-helper.json``` in that location and execute it, or edit the registry on your own.
+    + Edit ```streamlink-helper.json``` with the path to ```streamlink-helper.bat```.
+    + Edit ```streamlink-helper.bat``` with the path to ```streamlink-helper.py``` (and to Python, if it's not on your path).
+    + If ```streamlink.exe``` is not on your path, edit ```streamlink-helper.py```, replacing ```streamlink.exe``` with the location to it.
 
 ## FAQ
 
