@@ -3,5 +3,5 @@
   "description": "Runs streamlink with passed URL",
   "path": "C:\\streamlink-helper\\streamlink-helper.bat",
   "type": "stdio",
-  "allowed_extensions": [ "streamlink.helper@gmail.com" ]
+  "allowed_extensions": [ "streamlink.firefox.helper@gmail.com" ]
 }
