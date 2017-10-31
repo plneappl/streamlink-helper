@@ -61,7 +61,7 @@ browser.menus.onClicked.addListener((info, tab) => {
   switch (info.menuItemId) {
     case "streamlink-link":
       url = info.linkUrl;
-      
+
       break;
     case "streamlink-page":
       url = info.pageUrl;
@@ -73,5 +73,21 @@ browser.menus.onClicked.addListener((info, tab) => {
     s = browser.runtime.sendNativeMessage(nativeName, url);
     //port.postMessage(info.linkUrl);
     s.then(onResponse, onError);
-  } 
+  }
+});
+
+// Let other extensions invoke this extension.
+browser.onMessageExternal.addListener((url, sender) => {
+  if(url) {
+    // Ensure we got a valid URL
+    try {
+      new URL(url);
+    }
+    catch(e) {
+      return Promise.reject(e);
+    }
+    return browser.runtime.sendNativeMessage(nativeName, url)
+      .then(onResponse, onError);
+  }
+  return Promise.reject();
 });
