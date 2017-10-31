@@ -33,6 +33,14 @@ Probably, but you have to consult [the official documentation](https://developer
 
 - "Why only FF57?"
 
-The templates ([1](https://github.com/mdn/webextensions-examples/tree/master/native-messaging/add-on), [2](https://github.com/mdn/webextensions-examples/tree/master/menu-demo)) I used to create this had some lower version limits, so I took the upper one. Since there is already a [functioning addon for FF ≤ 56](https://addons.mozilla.org/en-US/firefox/addon/open-livestreamer/), I didn't check if this addon works with lower versions. 
+The templates ([1](https://github.com/mdn/webextensions-examples/tree/master/native-messaging/add-on), [2](https://github.com/mdn/webextensions-examples/tree/master/menu-demo)) I used to create this had some lower version limits, so I took the upper one. Since there is already a [functioning addon for FF ≤ 56](https://addons.mozilla.org/en-US/firefox/addon/open-livestreamer/), I didn't check if this addon works with lower versions.
 To use [Open with Livestreamer](https://addons.mozilla.org/en-US/firefox/addon/open-livestreamer/), just set the path to "livestreamer" to the streamlink executable, and it works with streamlink.
 
+## Invoking Streamlink from another extension
+```js
+browser.runtime.sendMessage("streamlink.firefox.helper@gmail.com", "https://example.com/your/url/here")
+  .then(onSuccess)
+  .catch(onError);
+```
+
+You can use the built-in management API to check if the extension is installed.
