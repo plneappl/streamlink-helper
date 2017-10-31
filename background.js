@@ -77,7 +77,7 @@ browser.menus.onClicked.addListener((info, tab) => {
 });
 
 // Let other extensions invoke this extension.
-browser.onMessageExternal.addListener((url, sender) => {
+browser.runtime.onMessageExternal.addListener((url, sender) => {
   if(url) {
     // Ensure we got a valid URL
     try {
