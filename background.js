@@ -78,8 +78,8 @@ browser.menus.onClicked.addListener((info, tab) => {
 
 // Let other extensions invoke this extension.
 browser.runtime.onMessageExternal.addListener((url, sender) => {
-  if(url) {
-    // Ensure we got a valid URL
+  // Ensure we got a valid URL
+  if(url && (typeof url ==='string' || url instanceof String)) {
     try {
       new URL(url);
     }
@@ -89,5 +89,14 @@ browser.runtime.onMessageExternal.addListener((url, sender) => {
     return browser.runtime.sendNativeMessage(nativeName, url)
       .then(onResponse, onError);
   }
-  return Promise.reject();
+  else {  
+    message = 'Error in argument url:\n';
+    if(url) {
+      message += url.toString();
+    }
+    else {
+      message += 'url was null';
+    }
+    return Promise.reject(message);
+  }
 });
