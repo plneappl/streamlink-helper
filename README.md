@@ -14,12 +14,18 @@ This allows you to watch livestreams, for example from twitch, with a custom med
 You need to do multiple things for this to work:
 - Install [Python](https://python.org), and add it to your ```PATH``` environment variable.
 - Install [Streamlink](https://github.com/streamlink/streamlink), propably using ```pip install streamlink```. Add the executable to your path.
-- Set ```default-stream best``` (or another quality) in the ```streamlinkrc``` (```found at %APPDATA%\streamlink\streamlinkrc```)
+- Set ```default-stream best``` (or another quality) and a default `player` in the ```streamlinkrc``` (found on Windows at ```%APPDATA%\streamlink\streamlinkrc```, on Linux at `~/.streamlinkrc`).
 - Download and unzip ```streamlink-helper.zip``` from [Releases](https://github.com/plneappl/streamlink-helper/releases) somewhere you can read and write to. Note that location. Then:
-    + Edit ```registry.reg``` with the path to ```streamlink-helper.json``` in that location and execute it, or edit the registry on your own.
-    + Edit ```streamlink-helper.json``` with the path to ```streamlink-helper.bat```.
-    + Edit ```streamlink-helper.bat``` with the path to ```streamlink-helper.py``` (and to Python, if it's not on your path).
-    + If ```streamlink.exe``` is not on your path, edit ```streamlink-helper.py```, replacing ```streamlink.exe``` with the location to it.
+    - **Windows**:
+        + Edit ```registry.reg``` with the path to ```streamlink-helper.json``` in that location and execute it, or edit the registry on your own.
+        + Edit ```streamlink-helper.json``` with the path to ```streamlink-helper.bat```.
+        + Edit ```streamlink-helper.bat``` with the path to ```streamlink-helper.py``` (and to Python, if it's not on your path).
+        + If ```streamlink.exe``` is not on your path, edit ```streamlink-helper.py```, replacing ```streamlink.exe``` with the location to it.
+    - **Linux**:
+        + Ensure Python is in your path. If you have a `python` binary in your terminal that is most likely the case.
+        + Edit `streamlink-helper.json` with the path to `streamlink-helper.py`.
+        + Copy the `streamlink-helper.json` as `streamlink_helper.json` to the appropriate directory according to [this documentation](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Native_manifests#Linux) (most likely you want to do `cp streamlink-helper.json ~/.mozilla/native-messaging-hosts/streamlink_helper.json`).
+        + If `streamlink` is not in your path, edit `streamlink-helper.py`, replacing `streamlink` with the location to it.
 
 ## FAQ
 
@@ -27,9 +33,9 @@ You need to do multiple things for this to work:
 
 Yes, its way too complicated, but neccessary for FF57. Maybe I could have made it easier, but relative paths don't seem to work in all these files. If you want, you could create an installer for this ;)
 
-- "Does this work on Linux/MacOS?"
+- "Does this work on MacOS?"
 
-Probably, but you have to consult [the official documentation](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Native_messaging) for how to configure your equivalent of a registry, remove the ```.exe```-part from the python file, point directly to the python file instead of a bat and make it executable. YMMV.
+Probably, but you have to consult [the official documentation](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Native_messaging) for how to configure your equivalent of a registry, point directly to the python file instead of a bat and make it executable. YMMV.
 
 - "Why only FF57?"
 

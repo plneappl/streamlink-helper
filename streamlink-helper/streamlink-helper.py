@@ -4,12 +4,16 @@ import sys
 import json
 import struct
 import subprocess
+import platform
 
 def launchStreamlink(url):
-  # https://msdn.microsoft.com/en-us/library/windows/desktop/ms684863(v=vs.85).aspx
-  p = subprocess.Popen(["streamlink.exe", url], creationflags = 0x01000000 | subprocess.CREATE_NEW_CONSOLE)
+  if platform.system() == 'Windows':
+    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms684863(v=vs.85).aspx
+    p = subprocess.Popen(['streamlink.exe', url], creationflags = 0x01000000 | subprocess.CREATE_NEW_CONSOLE)
+  else:
+    p = subprocess.Popen(['streamlink', url], stdout = subprocess.PIPE)
   p.wait()
-  
+
 try:
     # Python 3.x version
     # Read a message from stdin and decode it.
