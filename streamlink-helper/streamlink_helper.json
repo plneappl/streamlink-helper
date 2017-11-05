@@ -1,7 +1,8 @@
 {
   "name": "streamlink_helper",
   "description": "Runs streamlink with passed URL",
-  "path": "C:\\streamlink-helper\\streamlink-helper.bat",
+  "path_windows": "C:\\streamlink-helper\\streamlink_helper.bat",
+  "path_linux": "/home/<USER>/.mozilla/native-messaging-hosts/streamlink_helper.py",
   "type": "stdio",
   "allowed_extensions": [ "streamlink.firefox.helper@gmail.com" ]
 }

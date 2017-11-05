@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python 
 
 import sys
 import json
@@ -7,12 +7,37 @@ import subprocess
 import platform
 
 def launchStreamlink(url):
-  if platform.system() == 'Windows':
+  message = platform.system() + "\n"
+  for p in sys.path:
+    message += "\t" + p + "\n"
+  try:
+    if platform.system() == 'Windows':
     # https://msdn.microsoft.com/en-us/library/windows/desktop/ms684863(v=vs.85).aspx
-    p = subprocess.Popen(['streamlink.exe', url], creationflags = 0x01000000 | subprocess.CREATE_NEW_CONSOLE)
-  else:
-    p = subprocess.Popen(['streamlink', url], stdout = subprocess.PIPE)
-  p.wait()
+      p = subprocess.Popen(['streamlink.exe', url], creationflags = 0x01000000 | subprocess.CREATE_NEW_CONSOLE)
+    else:
+      p = subprocess.Popen(['/home/<USER>/.local/bin/streamlink', url], stdout = subprocess.PIPE)
+    p.wait()
+  except (Error, Exception) as e:
+    message += type(e) + "\n"
+    message += e.args + "\n"
+    message += e + "\n"
+  finally:
+    return message
+
+def main():
+  while True:
+    message = ""
+    try:
+      url = getMessage()
+      message = url + "\n"
+      message += launchStreamlink(url) + "\n"
+      message += "done"
+    except (Error, Exception) as e:
+      message += type(e) + "\n"
+      message += e.args + "\n"
+      message += e + "\n"
+    finally:
+      sendMessage(encodeMessage(message))
 
 try:
     # Python 3.x version
@@ -38,11 +63,10 @@ try:
         sys.stdout.buffer.write(encodedMessage['content'])
         sys.stdout.buffer.flush()
 
-    while True:
-      url = getMessage()
-      launchStreamlink(url)
-      sendMessage(encodeMessage("done."))
-
+    main()
+    
+    
+    
 except AttributeError:
     # Python 2.x version (if sys.stdin.buffer is not defined)
     # Read a message from stdin and decode it.
@@ -67,7 +91,5 @@ except AttributeError:
         sys.stdout.write(encodedMessage['content'])
         sys.stdout.flush()
 
-    while True:
-      url = getMessage()
-      launchStreamlink(url)
-      sendMessage(encodeMessage("done."))
+    main()
+    
