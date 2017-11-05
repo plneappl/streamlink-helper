@@ -29,6 +29,24 @@ You need to do multiple things for this to work:
         + If `streamlink` is not in your path, edit `streamlink_helper.py`, replacing `streamlink` with the location to it.
         + If `streamlink` IS on your path, but firefox still refuses to find it, you can find out the path to `streamlink` with `which streamlink` and put that in `streamlink_helper.py`.
 
+## Troubleshooting
+
+To do any kind of troubleshooting, go to `about:debugging` in your firefox, enable debugging and click on "Debug" under the extension "Streamlink Helper".
+Two windows open: 
+- A message asking if you want to debug → click "Ok"
+- A console window. This will display any error messages. Some are found below. Note that I might not know of all errors, or all causes. If you find some more please create a new issue so I can add them. If you know how to resolve them, even better!
+
+### "Error: Error: Attempt to postMessage on disconnected port"
+- The path to `streamlink_helper_windows.json` is wrong or missing in your registry
+- The path to `streamlink_helper.bat` is wrong in `streamlink_helper_windows.json`
+
+### "Error: Error: An unexpected error occurred"
+- The path to `streamlink_helper.py` is wrong in `streamlink_helper.bat` or python is not on your path
+
+### A long message is displayed with different paths
+- python couldn't find `streamlink`. Put it on your path or tell python where it is (in `streamlink_helper.py`).
+
+
 ## FAQ
 
 - "This is all too complicated! Is this really neccessary? Couldn't you have made this easier?"
