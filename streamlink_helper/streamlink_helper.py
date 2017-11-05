@@ -12,11 +12,18 @@ def launchStreamlink(url):
     message += "\t" + p + "\n"
   try:
     if platform.system() == 'Windows':
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/ms684863(v=vs.85).aspx
+      # https://msdn.microsoft.com/en-us/library/windows/desktop/ms684863(v=vs.85).aspx
       p = subprocess.Popen(['streamlink.exe', url], creationflags = 0x01000000 | subprocess.CREATE_NEW_CONSOLE)
+      # p = subprocess.Popen(['C:\Program Files\Anaconda3\Scripts\streamlink.exe', url], creationflags = 0x01000000 | subprocess.CREATE_NEW_CONSOLE)
+      # p = subprocess.Popen(['C:\Program Files\Python36\Scripts\streamlink.exe', url], creationflags = 0x01000000 | subprocess.CREATE_NEW_CONSOLE)
     else:
-      p = subprocess.Popen(['/home/<USER>/.local/bin/streamlink', url], stdout = subprocess.PIPE)
+      # if streamlink is not found, you can propably fix it by uncommenting and editing the following line, replacing <USER> with your username:
+      # p = subprocess.Popen(['/home/<USER>/.local/bin/streamlink', url], stdout = subprocess.PIPE)
+      # and commenting out this one:
+      p = subprocess.Popen(['streamlink', url], stdout = subprocess.PIPE)
     p.wait()
+    # clear debug messages, comment out if you're troubleshooting
+    message = ""
   except (Error, Exception) as e:
     message += type(e) + "\n"
     message += e.args + "\n"
@@ -31,7 +38,8 @@ def main():
       url = getMessage()
       message = url + "\n"
       message += launchStreamlink(url) + "\n"
-      message += "done"
+      # clear debug messages, comment out if you're troubleshooting
+      message = "done"
     except (Error, Exception) as e:
       message += type(e) + "\n"
       message += e.args + "\n"
