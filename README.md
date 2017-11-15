@@ -41,7 +41,9 @@ Two windows open:
 - The path to `streamlink_helper.bat` is wrong in `streamlink_helper_windows.json`
 
 ### "Error: Error: An unexpected error occurred"
-- The path to `streamlink_helper.py` is wrong in `streamlink_helper.bat` or python is not on your path
+- The path to `streamlink_helper.py` is wrong in `streamlink_helper.bat` or python is not on your path. Paths with spaces need to be enclosed in double quotes, for example
+
+`call "C:\Program Files\Python36\bin\python.exe" "C:\Streamlink Helper\streamlink_helper.py"`
 
 ### A long message is displayed with different paths
 - python couldn't find `streamlink`. Put it on your path or tell python where it is (in `streamlink_helper.py`).
