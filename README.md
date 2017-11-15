@@ -65,10 +65,10 @@ The templates ([1](https://github.com/mdn/webextensions-examples/tree/master/nat
 To use [Open with Livestreamer](https://addons.mozilla.org/en-US/firefox/addon/open-livestreamer/), just set the path to "livestreamer" to the streamlink executable, and it works with streamlink.
 
 ## Invoking Streamlink from another extension
-`js
+```js
 browser.runtime.sendMessage("streamlink.firefox.helper@gmail.com", "https://example.com/your/url/here")
   .then(onSuccess)
   .catch(onError);
-`
+```
 
 You can use the built-in management API to check if the extension is installed.
