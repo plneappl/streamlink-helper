@@ -2,7 +2,7 @@
 
 A companion addon for [Streamlink](https://github.com/streamlink/streamlink).
 
-Listing on AMO: [Streamlink Helper](https://addons.mozilla.org/en-US/firefox/addon/streamlink_helper/).
+Listing on AMO: [Streamlink Helper](https://addons.mozilla.org/en-US/firefox/addon/streamlink-helper/).
 
 ## What it does
 
