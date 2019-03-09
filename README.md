@@ -24,6 +24,7 @@ You need to do multiple things for this to work:
         + + If `streamlink.exe` IS on your path, but firefox still refuses to find it, you can find out the path to `streamlink.exe` with `where streamlink` and put that in `streamlink_helper.py`.
     - **Linux**:
         + Ensure Python is in your path. If you can call `python` from a terminal, that is propably the case.
+        + Execute `chmod +x streamlink_helper.py`.
         + Edit `streamlink_helper.json` with the path to `streamlink_helper.py`.
         + Copy `streamlink_helper.json` to the appropriate directory according to [this documentation](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Native_manifests#Linux) (most likely you want to do `cp streamlink_helper.json ~/.mozilla/native-messaging-hosts/`).
         + If `streamlink` is not in your path, edit `streamlink_helper.py`, replacing `streamlink` with the location to it.
