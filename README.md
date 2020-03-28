@@ -15,7 +15,7 @@ You need to do multiple things for this to work:
 - Install [Python](https://python.org), and add it to your `PATH` environment variable.
 - Install [Streamlink](https://github.com/streamlink/streamlink), propably using `pip install streamlink`. Add the executable to your path.
 - Set `default-stream best` (or another quality) and a default `player` in the `streamlinkrc` (found on Windows at `%APPDATA%\streamlink\streamlinkrc`, on Linux at `~/.streamlinkrc`).
-- Download and unzip `streamlink_helper.zip` from [Releases](https://github.com/plneappl/streamlink_helper/releases) somewhere you can read and write to. Note that location. Then:
+- Download and unzip `streamlink_helper.zip` from [Releases](https://github.com/plneappl/streamlink-helper/releases) somewhere you can read and write to. Note that location. Then:
     - **Windows**:
         + Edit `registry.reg` with the path to `streamlink_helper_windows.json` in that location and execute it, or edit the registry on your own.
         + Edit `streamlink_helper_windows.json` with the path to `streamlink_helper.bat`.
