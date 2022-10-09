@@ -1,9 +1,8 @@
 {
-
   "manifest_version": 2,
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDescription__",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "default_locale": "en",
   "applications": {
     "gecko": {
@@ -11,13 +10,25 @@
       "strict_min_version": "56.0a1"
     }
   },
-
-  "background": {
-    "scripts": ["background.js"]
-  },
   
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+
+  "commands": {
+    "launch-streamlink": {
+      "suggested_key": {
+        "default": "Ctrl+Alt+S"
+      },
+      "description": "Launches streamlink with the current page"
+    }
+  },
+
   "permissions": [
     "menus",
-    "nativeMessaging"
+    "nativeMessaging",
+    "tabs"
   ]
 }

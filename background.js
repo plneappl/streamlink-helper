@@ -69,12 +69,20 @@ browser.menus.onClicked.addListener((info, tab) => {
   }
   if(url !== undefined && url !== null){
     console.log(url);
-    //console.log(port);
-    s = browser.runtime.sendNativeMessage(nativeName, url);
-    //port.postMessage(info.linkUrl);
-    s.then(onResponse, onError);
+    browser.runtime.sendNativeMessage(nativeName, url)
+      .then(onResponse, onError);
   }
 });
+
+browser.commands.onCommand.addListener((command) => {
+  if (command === "launch-streamlink") {
+    browser.tabs.query({active: true, windowId: browser.windows.WINDOW_ID_CURRENT})
+      .then(tabs => browser.tabs.get(tabs[0].id))
+      .then(tab => tab.url)
+      .then(url => browser.runtime.sendNativeMessage(nativeName, url))
+      .then(onResponse, onError);
+  }
+})
 
 // Let other extensions invoke this extension.
 browser.runtime.onMessageExternal.addListener((url, sender) => {
