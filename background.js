@@ -77,9 +77,14 @@ browser.menus.onClicked.addListener((info, tab) => {
 browser.commands.onCommand.addListener((command) => {
   if (command === "launch-streamlink") {
     browser.tabs.query({active: true, windowId: browser.windows.WINDOW_ID_CURRENT})
-      .then(tabs => browser.tabs.get(tabs[0].id))
-      .then(tab => tab.url)
-      .then(url => browser.runtime.sendNativeMessage(nativeName, url))
+      .then(tabs => browser.tabs.sendMessage(tabs[0].id, "gethoveredurl"))
+      .then(url => {
+        if (url !== undefined) {
+          return browser.runtime.sendNativeMessage(nativeName, url);
+        } else {
+          return Promise.reject("no response!");
+        }
+      })
       .then(onResponse, onError);
   }
 })
